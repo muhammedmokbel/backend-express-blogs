@@ -20,7 +20,7 @@ exports.signup = async (req , res, next) => {
     .createHash("sha256")
     .update(verifyToken)
     .digest("hex");
-    // ten minutes for expiration 
+    // thirty minutes for expiration 
     const verifyTokenExpiriedTime  = Date.now() + 30 * 1000 * 60 ; 
  
     // create user
