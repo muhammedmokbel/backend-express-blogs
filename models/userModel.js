@@ -39,6 +39,10 @@ const schema = new mongoose.Schema({
       "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
     ],
     }, 
+    passwordChangedAt : {
+        type : Date , 
+        default : null 
+    },
       acceptTerms : {
         type : Boolean, 
         default : false , 

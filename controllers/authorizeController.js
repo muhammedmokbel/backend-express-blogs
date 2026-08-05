@@ -145,6 +145,9 @@ exports.resetPassword = async (req, res, next) => {
     // set the resetToken and timer by null
     currentUser.resetTokenHashed = null; 
     currentUser.resetTokenExpiriedTime = null; 
+    // saving change password time 
+    const passwordChangedAt = new Date(); 
+    currentUser.passwordChangedAt = passwordChangedAt; 
     await currentUser.save({validateBeforeSave : true }); 
 
     return res.status(200).json({
