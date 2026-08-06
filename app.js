@@ -3,6 +3,7 @@ const express = require('express');
 
 //routes 
 const AuthRouter = require('./routes/AuthRoutes');
+const BlogRouter = require('./routes/BlogRoutes')
 
 // https://expressjs.com/en/resources/middleware/
 
@@ -14,7 +15,7 @@ const app = express();
 
 
 //config middlewares 
-app.use(express.json())
+app.use(express.json({limit : '50kb'}))
 
 
 app.get('/health', (req,res) =>{
@@ -28,7 +29,8 @@ app.get('/health', (req,res) =>{
 })
 
 // routers (sub-applications)
-app.use('/authorize',AuthRouter)
+app.use('/authorize',AuthRouter); 
+app.use('/blogs',BlogRouter)
 
 app.use(errorMiddleware)
 
